@@ -1,0 +1,39 @@
+<div class="contentForm">
+    <form  #f="ngForm"  (click)="submitproject()">
+        <div mat-dialog-content>
+            <h1 mat-dialog-title>Choose Plant<mat-icon (click)="dialogClose()"
+                    style="float: right; font-size: 30px; cursor: pointer;">cancel</mat-icon>
+            </h1>
+            <div>
+
+                <mat-form-field class="example-full-width" style="width: 260px;">
+                    <mat-select placeholder="Business type"  name="business_type" [(ngModel)]="data.business_type" #business_type="ngModel">
+                        <mat-option *ngFor="let topping of businessTypes" [value]="topping.business_type">
+                            {{topping.business_type}}</mat-option>
+                    </mat-select>
+                    <!-- <div *ngIf="(business_type.errors && business_type.touched || f.submitted)" class="textL">
+                        <small *ngIf="business_type.errors?.required" class="haserror">
+                            Business Type is required
+                        </small>
+                    </div> -->
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="example-full-width" style="width: 260px;">
+                    <input matInput name="project" [(ngModel)]="data.project" 
+                        placeholder="Enter Application Name" required="true" #projecte="ngModel">
+                    <!-- <div class="haserror" *ngIf="(app_name.errors && app_name.touched || f.submitted)" class="tLeft">
+                        <small *ngIf="app_name.errors?.required" class="haserror">
+                            This field is required
+                        </small>
+                    </div> -->
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div mat-dialog-actions class="btnaction">
+            <button mat-button type="submit" cdkFocusInitial >Submit</button>
+            <!-- <button mat-button mat-dialog-close>Cancel</button> -->
+        </div>
+    </form>
+</div>

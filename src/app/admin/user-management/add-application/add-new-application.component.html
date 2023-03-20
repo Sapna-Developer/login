@@ -1,0 +1,34 @@
+<div class="contentForm">
+    <form #f="ngForm" (submit)="addApplication(f)">
+        <div mat-dialog-content>
+            <h1 mat-dialog-title>New Application<mat-icon (click)="dialogClose()"
+                    style="float: right; font-size: 30px; cursor: pointer;">cancel</mat-icon>
+            </h1>
+            <div fxLayout="column" fxLayoutAlign="space-around">
+                <mat-form-field class="example-full-width">
+                    <input matInput name="app_name" [(ngModel)]="data.app_name" #app_name="ngModel"
+                        placeholder="Enter Application Name" required="true">
+                    <div class="haserror" *ngIf="(app_name.errors && app_name.touched || f.submitted)" class="tLeft">
+                        <small *ngIf="app_name.errors?.required" class="haserror">
+                            This field is required
+                        </small>
+                    </div>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput name="app_url" [(ngModel)]="data.app_url" #app_url="ngModel"
+                        placeholder="Enter Application URL" required="true">
+                    <div class="haserror" *ngIf="(app_url.errors && app_url.touched || f.submitted)" class="tLeft">
+                        <small *ngIf="app_url.errors?.required" class="haserror">
+                            This field is required
+                        </small>
+                    </div>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div mat-dialog-actions class="btnaction">
+            <button mat-button type="submit" cdkFocusInitial>Submit</button>
+            <!-- <button mat-button mat-dialog-close>Cancel</button> -->
+        </div>
+    </form>
+</div>

@@ -1,0 +1,98 @@
+<div class="contentForm">
+    <form #f="ngForm" (submit)="addGuestUser(f)">
+        <div mat-dialog-content>
+            <h1 mat-dialog-title>Add Guest User<mat-icon (click)="dialogClose()"
+                    style="float: right; font-size: 30px; cursor: pointer;">cancel</mat-icon>
+            </h1>
+            <div fxLayout="column">
+                <mat-form-field class="example-full-width">
+                    <input matInput name="first_name" [(ngModel)]="data.first_name" #first_name="ngModel"
+                        placeholder="Enter First Name" required="true" autocomplete="off">
+                    <div class="haserror" *ngIf="(first_name.errors && first_name.touched || f.submitted)"
+                        class="tLeft">
+                        <small *ngIf="first_name.errors?.required" class="haserror">
+                            This field is required
+                        </small>
+                    </div>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput name="last_name" [(ngModel)]="data.last_name" #last_name="ngModel"
+                        placeholder="Enter Last Name" required="true" autocomplete="off">
+                    <div class="haserror" *ngIf="(last_name.errors && last_name.touched || f.submitted)" class="tLeft">
+                        <small *ngIf="last_name.errors?.required" class="haserror">
+                            This field is required
+                        </small>
+                    </div>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput name="work_email" [(ngModel)]="data.work_email" #work_email="ngModel"
+                        placeholder="Enter Work Email" required="true" autocomplete="off">
+                    <div class="haserror" *ngIf="(work_email.errors && work_email.touched || f.submitted)"
+                        class="tLeft">
+                        <small *ngIf="work_email.errors?.required" class="haserror">
+                            This field is required
+                        </small>
+                    </div>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput name="mobile_no" [(ngModel)]="data.mobile_no" #mobile_no="ngModel"
+                        placeholder="Enter Mobile Number" required="true" autocomplete="off">
+                    <div class="haserror" *ngIf="(mobile_no.errors && mobile_no.touched || f.submitted)" class="tLeft">
+                        <small *ngIf="mobile_no.errors?.required" class="haserror">
+                            This field is required
+                        </small>
+                    </div>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput name="company_name" [(ngModel)]="data.company_name" #company_name="ngModel"
+                        placeholder="Enter Company Name" required="true" autocomplete="off">
+                    <div class="haserror" *ngIf="(company_name.errors && company_name.touched || f.submitted)" class="tLeft">
+                        <small *ngIf="company_name.errors?.required" class="haserror">
+                            This field is required
+                        </small>
+                    </div>
+                </mat-form-field>
+
+                <!-- <div fxFlex="15%" class="w100p">
+                    <mat-form-field class="example-full-width">
+                        <mat-select placeholder="Enter Company Name" name="company_name" [(ngModel)]="data.company_name"
+                            #company_name="ngModel">
+                            <mat-option>qwqqeq</mat-option>
+                        </mat-select>
+                        <div *ngIf="(roles.errors && roles.touched || f.submitted)" class="textL">
+                        <small *ngIf="roles.errors?.required" class="haserror">
+                          Role is required
+                        </small>
+                      </div>
+                    </mat-form-field>
+                </div> -->
+
+                <!-- <div fxFlex="15%" class="w100p">
+                    <mat-form-field class="example-full-width">
+                        <mat-select placeholder="Roles" name="roles" [(ngModel)]="data.role" #roles="ngModel">
+                            <mat-option></mat-option>
+                        </mat-select>
+                        <div *ngIf="(roles.errors && roles.touched || f.submitted)" class="textL">
+                            <small *ngIf="roles.errors?.required" class="haserror">
+                                Role is required
+                            </small>
+                        </div>
+                    </mat-form-field>
+                </div> -->
+
+            </div>
+        </div>
+
+        <div mat-dialog-actions class="btnaction">
+            <button mat-stroked-button type="submit" [disabled]="onSubmitLoading" cdkFocusInitial>Submit <mat-spinner
+                    [diameter]="24" *ngIf="onSubmitLoading" style="float:right; margin: 5px 0px 0px 5px"></mat-spinner>
+            </button>
+
+
+
+        </div>
+    </form>
+</div>

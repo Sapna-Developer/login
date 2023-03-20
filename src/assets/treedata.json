@@ -1,0 +1,16 @@
+{ 
+    "PlantName": {
+      "WTG": {
+        "WTG-1": {
+            "WTG-": "Blades",
+            "WTG-2": "Nacelle",
+            "WTG-3": "Tower"
+        },
+        "WTG-2": {
+            "WTG-2": "Blades",
+            "WTG-2": "Nacelle",
+            "WTG-2": "Tower"
+        }
+      }
+    }
+  }

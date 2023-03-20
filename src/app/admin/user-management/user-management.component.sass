@@ -1,0 +1,287 @@
+#wrapper
+  width: 100%
+  height: 0 auto
+  background: #FFFFFF
+  #header
+    .mIcon
+      color: #555
+      cursor: pointer
+      margin-right: 15px
+      transition: all .2s
+      &:last-child
+        margin-right: 0
+      &:hover
+        color: #333
+    .singleRow
+      box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12)
+      background-color: #fff
+
+  .logoWrap
+    width: 150px
+    height: 60px
+    cursor: pointer
+    display: flex
+    align-items: center
+    .resImg
+      max-width: 100%
+      height: auto
+  ::ng-deep #content
+    max-height: calc(100vh - 74px)
+    margin-top: 10px
+    margin-bottom: 10px
+    margin-left: 20px
+    flex: 1
+    .head3
+      color: #4F4F4F
+      font-size: 1.5em
+
+.mat-header-cell
+  align-items: center
+  font-size: 15px
+  font-weight: 600
+  background-color: #757575
+  min-height: 20px
+  color: white
+
+tr.mat-header-row
+  height: 43px
+
+.gray 
+  background-color: #f5f5f5
+
+.main-content
+  width: 100%
+  height: 0
+
+.search-container button 
+  float: right
+  margin-top: 8px
+  margin-right: 16px
+  background: #ddd
+  font-size: 15px
+  border: none
+  cursor: pointer
+
+
+.search-container button:hover 
+  background: #ccc
+
+
+.btn_content
+  text-align: right
+  margin-top: 20px
+  margin-bottom: 20px
+  margin-right: 30px
+
+.heading-content
+  margin-left: 30px
+  margin-top: 10px
+  float: left
+  font-size: 18px
+  font-weight: 700
+  color: #928b8b
+
+.mat-button, .mat-raised-button
+  background-color:red
+
+.custom-dialog-container .mat-dialog-container 
+  overflow-y: hidden
+
+
+::ng-deep .mat-menu-content 
+  background-color: #fff !important
+
+::ng-deep .mat-menu-item .mat-icon:not([color])
+  
+
+::ng-deep button.mat-menu-item
+  font-size: 13px
+  line-height: 38px
+  height: 38px
+
+::ng-deep .mat-menu-panel
+  min-height: 1px !important
+
+@media only screen and (max-width: 900px)
+  .side-menu
+    display: none
+  .mobile-menu
+    display: flex
+    margin-right: 20px
+    cursor: pointer
+  .sideOverLay
+    display: block
+    
+  .abs-menu
+    position: absolute
+    left: 0
+  .side-menu.mobile-menu
+    position: absolute
+    z-index: 2
+    height: 100vh
+    align-items: flex-start
+  .user-info
+    color: #cdcdcd
+@media only screen and (min-width: 900px)
+  .side-menu.mobile
+    display: none
+  .side-menu.mobile-menu
+    display: none
+  .user-info
+    display: flex
+    align-items: center
+  .drone-img
+    width: 80px  
+  .header-drop-menu
+    cursor: pointer
+    padding-left: 20px
+    padding-right: 20px
+@media only screen and (max-width: 490px)
+  .user-info
+    display: none
+  .drone-img
+    width: 60px
+  .header-drop-menu
+    padding-left: 5px
+    padding-right: 5px
+  .mobile-menu
+    margin-right: 5px
+.sub-title
+  font-family: 'Lobster', cursive
+  font-family: 'Poiret One', cursive
+  font-weight: bold
+  font-size: 15px
+  color: grey
+  position: relative
+  top: 21px
+  left: 5px     
+.al-items
+  display: flex
+  align-items: center
+.al-img-icon
+  width: 40px 
+  height: auto
+
+.al-img-icon1
+  width: 26px 
+  height: auto
+
+
+.timeContent
+  margin-bottom: 10px
+  
+  
+.mat-form-field 
+  font-size: 14px
+  width: 100%
+
+div.example-container.mat-elevation-z5
+  margin-left: 15px
+  margin-right: 15px
+
+.no-results 
+  display: flex
+  justify-content: center
+  padding: 14px
+  font-size: 14px
+  font-style: italic
+  
+.material-icons.color_red
+  color: #C33939
+
+.subheading-content
+  width: 100%
+  margin-top: 20px
+  margin-left: 30px
+  margin-right: 30px
+	
+
+.display
+  display: flex
+.maxWidth
+  width: 100%
+.search-full-width
+  width: 45%
+
+.mat-table__wrapper .mat-table 
+  min-width: 100% !important
+  width: 100% !important
+
+th, td
+  overflow: hidden
+  width: 200px
+  text-overflow: ellipsis
+  white-space: nowrap
+  
+.mat-header-row
+    width: 100%
+
+.mat-row
+    width: 100%
+  
+.mat-column-appname
+  padding-left: 5px
+  padding-right: 5px
+  flex: 0 0 50% !important
+  min-width: 150px !important
+
+.mat-column-username
+  padding-left: 5px
+  padding-right: 5px
+  flex: 0 0 50% !important
+  min-width: 170px !important
+
+.mat-column-email
+  padding-left: 5px
+  padding-right: 5px
+  flex: 0 0 50% !important
+  min-width: 280px !important
+
+.mat-column-role
+  padding-left: 5px
+  padding-right: 5px
+  flex: 0 0 50% !important
+  min-width: 160px !important
+
+.mat-column-business_type
+  padding-left: 5px
+  padding-right: 5px
+  flex: 0 0 50% !important
+  min-width: 160px !important
+
+.mat-column-project
+  padding-left: 5px
+  padding-right: 5px
+  flex: 0 0 50% !important
+  min-width: 200px !important
+
+.mat-column-action
+  padding-left: 5px
+  padding-right: 5px
+  flex: 0 0 0% !important
+  min-width: 14px !important
+
+.bgclr
+    width: 240px
+    .mat-card
+        padding: 0
+        .mat-button
+            height: 100%
+            line-height: 1.7
+            font-weight: 400
+            width: 100%
+            border-radius: 0
+            .mat-button-wrapper
+                display: flex
+                flex-direction: column
+                align-items: center
+                .mat-icon
+                    padding: 8px
+                    color: #fff
+                    border-radius: 4px
+
+.title
+  font-size: 1.0em
+  color: grey
+  margin-left: 5px
+

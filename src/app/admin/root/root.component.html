@@ -1,0 +1,252 @@
+<div id="wrapper">
+  <div id="header">
+    <mat-toolbar>
+      <mat-toolbar-row class="singleRow">
+        <span class="mobile-menu" (click)="toggleMobileMenu()">
+          <mat-icon *ngIf="!mobileMenu">menu</mat-icon>
+          <mat-icon *ngIf="mobileMenu">close</mat-icon>
+        </span>
+        <span class="logoWrap" (click)='logoClick()'>
+          <img class="resImg" src="./assets/images/mainlogo.svg" style="min-width:150px;">          
+        </span>
+        <span class="sub-title">
+          <!-- Eagle <span style="color:#3EB6E6;">E</span><span style="color:#76C44C;">y</span><span style="color:#FF952A;">e</span> -->
+        </span>
+        <span class="spacer"></span>
+        <span class="user-info">
+          <mat-icon style="width: 20px;height: 20px;margin-top: -4px; margin-right: 4px;">person_outline</mat-icon>
+          <span>
+              <label style="padding-left: 1px;font-size: 16px;" [matMenuTriggerFor]="verticals" class="header-drop-menu">{{currentUser.username | titlecase}}</label>
+          </span>
+        </span>
+      <mat-menu #verticals="matMenu">
+        <button mat-menu-item  (click)="userLogout()"><span class="al-items"><mat-icon>power_settings_new</mat-icon> Logout</span></button>
+      </mat-menu>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+  <div id="main-content">
+    <div class="side-menu mobile">
+       <nav class="navigation">
+        <ul class="mainmenu">
+
+          <li class="hasSub" *ngIf="solarMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>Solar Upload</div>
+            </a>
+          </li>
+          <li class="hasSub" *ngIf="solarMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>Solar Un-identified</div>
+            </a>
+          </li>
+          <li class="hasSub" *ngIf="solarMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>Damaged Modules</div>
+            </a>
+          </li>
+          <li class="hasSub" *ngIf="solarMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>Module Inspection</div>
+            </a>
+          </li>
+          <li class="hasSub" *ngIf="solarMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>Soiling</div>
+            </a>
+          </li>
+          <li class="hasSub" *ngIf="solarMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>Vegetation Growth</div>
+            </a>
+          </li>
+
+          <li class="hasSub" *ngIf="windMenuItem">
+            <a href="javascript:;" class="sub-anchor">
+              <div>Wind Upload</div>
+            </a>
+            <ul class="submenu" *ngIf="purchasingMenu">
+              <li class="hasSub">
+                <a href="javascript:;" class="sub-anchor" >
+                  <div>Un-identified</div>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="hasSub" *ngIf="windMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>Wind Un-identified</div>
+              
+            </a>
+           
+          </li>
+          <li class="hasSub" *ngIf="hydroMenuItem">
+            <a href="javascript:;" class="sub-anchor">
+              <div>Hydro Upload</div>
+            </a>
+            <ul class="submenu" *ngIf="purchasingMenu">
+              <li class="hasSub">
+                <a href="javascript:;" class="sub-anchor" >
+                  <div>Un-identified</div>
+                </a>
+                
+              </li>
+              
+            </ul>
+          </li>
+          <li class="hasSub" *ngIf="hydroMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>Hydro Un-identified</div>
+              
+            </a>
+           
+          </li>
+          <li class="hasSub" *ngIf="gisMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>Orthomosaic Export</div>
+              
+            </a>
+           
+          </li>
+          <li class="hasSub" *ngIf="gisMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>DSM/DTM Export</div>
+              
+            </a>
+           
+          </li>
+          <li class="hasSub" *ngIf="gisMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>Topographic</div>
+              
+            </a>
+           
+          </li>
+          <li class="hasSub" *ngIf="gisMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>KMZ</div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="side-menu">
+      <nav class="navigation">
+        <ul class="mainmenu">
+
+          <li class="hasSub" *ngIf="solarMenuItem" routerLinkActive="sub-active">
+            <a href="javascript:;" class="sub-anchor" routerLink="/solar-tree" >
+              <div>Home</div>
+            </a>
+          </li>
+          <li class="hasSub" *ngIf="solarMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>Solar Un-identified</div>
+            </a>
+           
+          </li>
+          <li class="hasSub" *ngIf="solarMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>Damaged Modules</div>
+              
+            </a>
+           
+          </li>
+          <li class="hasSub" *ngIf="solarMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>Module Inspection</div>
+              
+            </a>
+           
+          </li>
+          <li class="hasSub" *ngIf="solarMenuItem">
+            <a href="javascript:;"  class="sub-anchor" >
+              <div>Soiling</div>
+              
+            </a>
+           
+          </li>
+          <li class="hasSub" *ngIf="solarMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>Vegetation Growth</div>
+              
+            </a>
+           
+          </li>
+          <li class="hasSub" *ngIf="windMenuItem">
+            <a href="javascript:;" class="sub-anchor" routerLink="/wind-tree">
+              <div>Home</div>
+            </a>
+            <ul class="submenu" *ngIf="purchasingMenu">
+              <li class="hasSub">
+                <a href="javascript:;" class="sub-anchor" >
+                  <div>Un-identified</div>
+                </a>
+                
+              </li>
+              
+            </ul>
+          </li>
+          <li class="hasSub" *ngIf="windMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>Wind Un-identified</div>
+              
+            </a>
+           
+          </li>
+          <li class="hasSub" *ngIf="hydroMenuItem">
+            <a href="javascript:;" class="sub-anchor">
+              <div>Hydro Upload</div>
+            </a>
+            <ul class="submenu" *ngIf="purchasingMenu">
+              <li class="hasSub">
+                <a href="javascript:;" class="sub-anchor" >
+                  <div>Un-identified</div>
+                </a>
+                
+              </li>
+              
+            </ul>
+          </li>
+          <li class="hasSub" *ngIf="hydroMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>Hydro Un-identified</div>
+              
+            </a>
+           
+          </li>
+          <li class="hasSub" *ngIf="gisMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>Orthomosaic Export</div>
+              
+            </a>
+           
+          </li>
+          <li class="hasSub" *ngIf="gisMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>DSM/DTM Export</div>
+              
+            </a>
+           
+          </li>
+          <li class="hasSub" *ngIf="gisMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>Topographic</div>
+              
+            </a>
+           
+          </li>
+          <li class="hasSub" *ngIf="gisMenuItem">
+            <a href="javascript:;" class="sub-anchor" >
+              <div>KMZ</div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="content-right">
+     
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

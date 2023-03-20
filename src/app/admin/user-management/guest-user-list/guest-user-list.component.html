@@ -1,0 +1,90 @@
+<div class="contentForm">
+    <div mat-dialog-content>
+        <h1 mat-dialog-title>Guest User Lists &nbsp;&nbsp;&nbsp;&nbsp;<button mat-mini-fab (click)="openGuestUser()"
+                style="background-color: #3CB7E6;" matTooltip="Add Guest User">
+                <mat-icon>group_add</mat-icon>
+            </button>
+            <mat-icon (click)="dialogClose()" style="float: right; font-size: 30px; cursor: pointer;">cancel</mat-icon>
+
+
+        </h1>
+
+        <div fxLayout="column" fxLayoutAlign="space-around">
+            <mat-tab-group>
+                <mat-tab label="Completed">
+                    <div class="example-container mat-elevation-z5">
+
+                        <table mat-table [dataSource]="completed_dataSource">
+
+                            <ng-container matColumnDef="usename">
+                                <th mat-header-cell *matHeaderCellDef> Username </th>
+                                <td mat-cell *matCellDef="let element"> {{element.usename}}</td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="work_email">
+                                <th mat-header-cell *matHeaderCellDef> Email </th>
+                                <td mat-cell *matCellDef="let element"> {{element.work_email}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="action">
+                                <th mat-header-cell *matHeaderCellDef> Action </th>
+                                <td mat-cell class="cur-poi" *matCellDef="let element">
+                                    <i (click)="resendUser(element)" matTooltip="Resend" style="color: #FFCA35;"
+                                        class="material-icons">
+                                        send
+                                    </i></td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="completed_displayedColumns;"></tr>
+                            <tr mat-row *matRowDef="let row; columns: completed_displayedColumns;"></tr>
+                        </table>
+                        <div class="no-results" *ngIf="completed_dataSource?.length == 0">
+                            No Records Found
+                        </div>
+
+                    </div>
+                </mat-tab>
+                <mat-tab label="Pending">
+                    <!-- style="margin-left: 0px; mcaargin-right: inherit; overflow: auto;
+                    height: calc(100vh - 244px);" -->
+                    <div class="example-container mat-elevation-z5">
+
+                        <table mat-table [dataSource]="pending_dataSource">
+
+                            <ng-container matColumnDef="usename">
+                                <th mat-header-cell *matHeaderCellDef> Username </th>
+                                <td mat-cell *matCellDef="let element"> {{element.usename}}</td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="work_email">
+                                <th mat-header-cell *matHeaderCellDef> Email </th>
+                                <td mat-cell *matCellDef="let element"> {{element.work_email}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="action">
+                                <th mat-header-cell *matHeaderCellDef> Action </th>
+                                <td mat-cell class="cur-poi" *matCellDef="let element">
+                                    <i (click)="resendUser(element)" matTooltip="Resend" style="color: #FFCA35;"
+                                        class="material-icons">
+                                        send
+                                    </i></td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="pending_displayedColumns;"></tr>
+                            <tr mat-row *matRowDef="let row; columns: pending_displayedColumns;"></tr>
+                        </table>
+                        <div class="no-results" *ngIf="pending_dataSource?.length == 0">
+                            No Records Found
+                        </div>
+
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+
+
+</div>
+<!-- <div mat-dialog-actions class="btnaction">
+    <button mat-button mat-dialog-close>Cancel</button>
+</div> -->

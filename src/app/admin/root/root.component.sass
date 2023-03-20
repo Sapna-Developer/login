@@ -1,0 +1,200 @@
+#wrapper
+  display: flex
+  flex-direction: column
+  #header
+    .mIcon
+      color: #555
+      cursor: pointer
+      margin-right: 15px
+      transition: all .2s
+      &:last-child
+        margin-right: 0
+      &:hover
+        color: #333
+    .singleRow
+      box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12)
+      background-color: #fff
+
+  .logoWrap
+    width: 150px
+    height: 60px
+    display: flex
+    cursor: pointer
+    align-items: center
+    .resImg
+      max-width: 100%
+      height: auto
+  ::ng-deep #content
+    max-height: calc(100vh - 74px)
+    overflow: auto
+    flex: 1
+    //padding: 5px
+    // padding: 16px
+    .head3
+      color: #bbb
+      font-size: 1.5em
+.side-menu
+  width: 250px
+  margin-left: 0
+  background-color: #f1f1f1
+  transition: all .2s
+.side-menu.hide
+  margin-left: -250px
+
+.sub-active 
+  font-weight: bold
+  background-color: black
+
+
+#main-content
+  display: flex
+  width: 100%
+  height: 100vh
+  .content-right
+    width: 100% 
+
+.navigation
+  width: 250px
+
+
+.mainmenu, .submenu
+  list-style: none
+  padding: 0
+  margin: 0
+
+
+
+.mainmenu
+  a
+    display: block
+    background-color: #e2e2e2
+    text-decoration: none
+    padding: 10px
+    color: #636363
+    height: 18px
+    font-size: 14px
+    transition: all .2s
+    &:hover
+      background-color: #C5C5C5
+      background-color: #d2d2d2
+  >li
+    border-bottom: 1px solid #d2d2d2    
+  li .submenu
+    display: block
+    max-height: calc(100vh - 181px)
+    overflow-y: auto
+  li.hasSub
+    position: relative
+    
+::-webkit-scrollbar
+  display: none
+
+
+.submenu
+  transition: all .2s
+  background-color: gray
+  li
+    padding-left: 5px
+    
+  a
+    background-color: #b8b9b8    
+    border-bottom: 1px solid #c3c3c3
+    &:hover
+      background-color: #C5C5C5
+      
+  overflow: hidden
+  max-height: 0
+  -webkit-transition: all 0.5s ease-out
+li.hasSub
+  > .sub-anchor
+    display: flex
+    align-items: center
+    justify-content: space-between
+ul.submenumenu
+  margin: 0
+  padding: 0
+  list-style: none
+  li
+    background-color: #969696
+    a
+      background-color: #c2c3c2
+      border-bottom: 1px solid #b8b9b8
+      &:hover
+        background-color: #C5C5C5
+.more-anchor-icon          
+  padding-top: 5px
+  font-size: 20px 
+.mobile-menu
+  display: none
+  align-items: center
+.sideOverLay
+  width: 100%
+  height: 100%
+  background-color: rgba(0,0,0,.5)
+  z-index: 1
+  position: absolute
+  top: 64px
+  left: 0
+  right: 0
+  bottom: 0
+  display: none    
+@media only screen and (max-width: 900px)
+  .side-menu
+    display: none
+  .mobile-menu
+    display: flex
+    margin-right: 20px
+    cursor: pointer
+  .sideOverLay
+    display: block
+    
+  .abs-menu
+    position: absolute
+    left: 0
+  .side-menu.mobile-menu
+    position: absolute
+    z-index: 2
+    height: 100vh
+    align-items: flex-start
+.user-info
+  color: #cdcdcd
+@media only screen and (min-width: 900px)
+  .side-menu.mobile
+    display: none
+  .side-menu.mobile-menu
+    display: none
+.user-info
+  display: flex
+  align-items: center
+.drone-img
+  width: 80px  
+.header-drop-menu
+  cursor: pointer
+  padding-left: 20px
+  padding-right: 20px
+@media only screen and (max-width: 490px)
+  .user-info
+    display: none
+  .drone-img
+    width: 60px
+  .header-drop-menu
+    padding-left: 5px
+    padding-right: 5px
+  .mobile-menu
+    margin-right: 5px
+.sub-title
+  font-family: 'Lobster', cursive
+  font-family: 'Poiret One', cursive
+  font-weight: bold
+  font-size: 1.1em
+  color: grey
+  position: relative
+  top: 23px
+  left: 10px     
+.al-items
+  display: flex
+  align-items: center
+.al-img-icon
+  width: 24px 
+  height: auto 
+  margin-right: 16px  

@@ -1,0 +1,237 @@
+<div id="wrapper">
+  <div id="header">
+    <mat-toolbar>
+      <mat-toolbar-row class="singleRow">
+        <div fxLayout="row" class="maxWidth" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.9%"
+          fxLayoutAlign="start center">
+          <div fxFlex="50%" class="display">
+            <span class="logoWrap" (click)='logoClick()'>
+              <img class="resImg" src="./assets/images/mainlogo.svg" style="min-width:150px;">
+            </span>
+            <span class="sub-title">
+              SSO
+            </span>
+          </div>
+          <div fxFlex="50%" class="display">
+            <mat-form-field class="search-full-width" style="font-size:13px;">
+              <input matInput placeholder="Search" [(ngModel)]="data.search">
+            </mat-form-field>
+            <span style="margin-top:10px">
+              <i class="material-icons">
+                search
+              </i>
+            </span>
+          </div>
+        </div>
+        <span class="spacer"></span>
+        <span style="margin-top:10px;margin-right:10px">
+          <i class="material-icons cur-poi" [matMenuTriggerFor]="menu" (click)="showdiv()">
+            apps
+          </i>
+        </span>
+
+        <mat-menu #menu="matMenu">
+          <div class="bgclr">
+            <mat-grid-list cols="3" rowHeight="1:1">
+              <mat-grid-tile style="cursor:pointer;" *ngFor="let list of menuList" (click)="getMenuID(list.app_name)">
+                <div fxLayout="column" fxLayoutAlign="space-around center">
+                  <img src="{{list.app_icon}}" height="35px" width="35px">
+                  <span class="title">{{list.app_name}}</span>
+                </div>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-menu>
+
+        <!-- <mat-menu class="bgclr" #menu="matMenu">
+          <div class="bgclr">
+            <mat-grid-list [cols]="breakpoint" rowHeight="2:1" (window:resize)="onResize($event)" class="myGridList">
+              <mat-grid-tile style="cursor:pointer;" *ngFor="let list of menuList" (click)="getMenuID(list.app_name)">
+                <img src="assets/images/fourcast.png" height="20px" width="20px">
+                <span class="title">{{list.app_name}}</span>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-menu> -->
+
+        <span class="user-info">
+          <mat-icon style="width: 20px;height: 20px;margin-top: -4px; margin-right: 4px;">person_outline</mat-icon>
+          <span>
+            <label style="padding-left: 1px;font-size: 16px;" [matMenuTriggerFor]="verticals"
+              class="header-drop-menu">{{currentUser.username | titlecase}}</label>
+          </span>
+        </span>
+        <mat-menu #verticals="matMenu">
+          <button mat-menu-item (click)="userLogout()"><span class="al-items">
+              <mat-icon>power_settings_new</mat-icon> Logout
+            </span></button>
+        </mat-menu>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+
+  <div id="content" style="padding:10px;">
+    <div fxLayout.xs="column">
+      <div fxFlex="85">
+        <span style="color: #4F4F4F; font-size: 18px;" class="head3 mt0 mb5">INTELLAIRE Applications User Management
+          System</span>
+      </div>
+      <div fxFlex="15" class="posRel text-right">
+        <button mat-mini-fab (click)="openUserMngt()" style="background-color: #FF952A;"
+          matTooltip="Add new Application">
+          <mat-icon>add_to_queue</mat-icon>
+        </button>&nbsp;
+      </div>
+      <div fxFlex="4" class="posRel text-right">
+        <button mat-mini-fab (click)="openGuestUserList()" style="background-color: rgb(245, 204, 55);"
+          matTooltip="Guest User List">
+          <mat-icon>view_list</mat-icon>
+        </button>&nbsp;
+      </div>&nbsp;
+      <div fxFlex="4" class="posRel text-right">
+        <button mat-mini-fab (click)="openprojectList()" style="background-color: rgb(112, 208, 91);"
+          matTooltip="projects">
+          <mat-icon>add</mat-icon>
+        </button>&nbsp;
+      </div>
+    </div>
+
+    <div style="margin-top: 20px;">
+
+      <form #f="ngForm" (submit)="submit(f)">
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.9%" fxLayoutAlign="start center">
+
+          <div fxFlex="15%" class="w100p">
+            <mat-form-field class="example-full-width">
+              <mat-select placeholder="Applications" name="app_name" [(ngModel)]="data.app_name"
+                [disabled]="!bol_Application" (selectionChange)="selectProjectList(data);selectApp(data.app_name);"
+                #app_name="ngModel">
+                <mat-option *ngFor="let apps of appLists" [value]="apps.app_name">{{apps.app_name}}</mat-option>
+              </mat-select>
+              <div *ngIf="(app_name.errors && app_name.touched || f.submitted)" class="textL">
+                <small *ngIf="app_name.errors?.required" class="haserror">
+                  Application name is required
+                </small>
+              </div>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="20%" class="w100p">
+            <mat-form-field class="example-full-width">
+              <input type="text" name="username" placeholder="User" matInput [formControl]="myControl"
+                [disabled]="!bol_user" [(ngModel)]="data.username" (ngModelChange)="dataChanged($event)"
+                [matAutocomplete]="auto">
+
+              <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-option *ngFor="let option of users | async" [value]="option.usename"
+                  (onSelectionChange)="selectUsermngtOption(option)">
+                  <span style="font-size: 15px; font-weight: 500;">{{option.usename}} - </span>
+                  <span style="font-size: 13px; font-weight: 300;">{{option.work_email}}</span>
+                </mat-option>
+              </mat-autocomplete>
+              <mat-error>User name is required</mat-error>
+
+            </mat-form-field>
+          </div>
+          <div fxFlex="15%" class="w100p">
+            <mat-form-field class="example-full-width">
+              <mat-select placeholder="Roles" name="roles" [(ngModel)]="data.role" #roles="ngModel"
+                [disabled]="!bol_Roles" (selectionChange)="userRolesAuthorizations(data)">
+                <mat-option *ngFor="let topping of roleLists" [value]="topping.roles">{{topping.roles}}</mat-option>
+              </mat-select>
+              <div *ngIf="(roles.errors && roles.touched || f.submitted)" class="textL">
+                <small *ngIf="roles.errors?.required" class="haserror">
+                  Role is required
+                </small>
+              </div>
+            </mat-form-field>
+          </div>
+          <div fxFlex="15%" class="w100p">
+            <mat-form-field class="example-full-width">
+              <mat-select placeholder="Business type" name="business_type" [(ngModel)]="data.business_type"
+                [disabled]="!bol_Business_type" #business_type="ngModel" (selectionChange)="selectProjectList(data)">
+                <mat-option *ngFor="let topping of businessTypes" [value]="topping.business_type">
+                  {{topping.business_type | uppercase}}</mat-option>
+              </mat-select>
+              <div *ngIf="(business_type.errors && business_type.touched || f.submitted)" class="textL">
+                <small *ngIf="business_type.errors?.required" class="haserror">
+                  Business Type is required
+                </small>
+              </div>
+            </mat-form-field>
+          </div>
+          <div fxFlex="15%" class="w100p">
+            <mat-form-field class="example-full-width">
+              <mat-select class="example-full-width" placeholder="Plants" name="project" [(ngModel)]="data.project"
+                [disabled]="!bol_Plants"     >
+                <mat-option *ngFor="let topping of projList" [value]="topping.Project">{{topping.Project}}</mat-option>
+              </mat-select>
+              <!-- <div *ngIf="(project.errors && project.touched || f.submitted)" class="textL">
+                <small *ngIf="project.errors?.required" class="haserror">
+                  Project name is required
+                </small>
+              </div> -->
+            </mat-form-field>
+          </div>
+          <div fxFlex="15%" style="margin-bottom: 4px;">
+            <button type="submit" style="margin-bottom: 4px;" mat-button mat-raised-button mat-secondary
+              class="w100 mnt10">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <hr style="border-top:1px solid #e2e2e2;" />
+    <div class="example-container mat-elevation-z5" style="margin-left: 0px; margin-right: inherit; overflow: auto;
+  height: calc(100vh - 244px);">
+      <table mat-table [dataSource]="dataSource" style="width: 100%">
+
+        <ng-container matColumnDef="appname">
+          <th mat-header-cell *matHeaderCellDef> Applications </th>
+          <td mat-cell *matCellDef="let element"> {{element.APP_NAME}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="username">
+          <th mat-header-cell *matHeaderCellDef> User name </th>
+          <td mat-cell *matCellDef="let element"> {{element.USERNAME}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.WORK_EMAIL}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="role">
+          <th mat-header-cell *matHeaderCellDef> Roles </th>
+          <td mat-cell *matCellDef="let element"> {{element.ROLE}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="business_type">
+          <th mat-header-cell *matHeaderCellDef> Business type </th>
+          <td mat-cell *matCellDef="let element"> {{element.BUSINESS_TYPE | uppercase}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="project">
+          <th mat-header-cell *matHeaderCellDef> Plants </th>
+          <td mat-cell *matCellDef="let element"> {{element.PROJECT}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td class="cur-poi" mat-cell *matCellDef="let element">
+            <!-- <i (click)="delete(element)" style="color: #d32f2f;" class="material-icons">
+              delete_outline
+            </i></td> -->
+            <mat-icon (click)="delete(element)" style="color: #d32f2f;">delete_outline</mat-icon>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns;" [ngClass]="{gray: even}"></tr>
+      </table>
+      <div class="no-results" *ngIf="dataSource?.length == 0">
+        {{error_msg}}
+      </div>
+    </div>
+
+  </div>
+</div>

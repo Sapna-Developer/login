@@ -1,0 +1,507 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700')
+@import "~@angular/material/prebuilt-themes/indigo-pink.css"
+body
+  position : fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  margin: 0
+  padding: 0
+  height: 100%
+  font-family: 'Roboto'
+
+/*  Common classes */
+.cur-poi
+ cursor: pointer
+.p0
+  padding: 0px !important
+
+.p15
+  padding: 15px !important
+
+.pt5
+  padding-top: 5px !important
+
+.pt10
+  padding-top: 10px !important
+
+.mt0
+  margin-top: 0
+
+.mt5
+  margin-top: 5px
+
+.mb5
+  margin-bottom: 5px
+
+.mb10
+  margin-bottom: 10px
+.mtb10
+  margin-top: 10px
+  margin-bottom: 10px
+
+.mr10
+  margin-right: 10px
+
+.mtb0
+  margin-top: 0
+  margin-bottom: 0
+.mt30
+  margin-top: 30px
+.w90
+  width: 90%
+
+.w100
+  width: 100%
+.mnt10
+  margin-top: -10px !important
+.w50
+  width: 50%
+
+.tCenter
+  text-align: center
+
+.tRight
+  text-align: right
+
+.tLeft
+  text-align: left
+
+.p10
+  padding: 10px
+
+.pr10
+  padding-right: 10px
+
+.m10
+  margin: 5px
+
+.w50p
+  width: 50%
+
+.posRel
+  position: relative
+
+.custom-file-input
+  color: transparent
+  outline: none
+  &::-webkit-file-upload-button
+    visibility: hidden
+  &::before
+    content: 'Upload files'
+    color: black
+    display: inline-block
+    background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3)
+    border: 1px solid #999
+    border-radius: 3px
+    padding: 5px 8px
+    outline: none
+    white-space: nowrap
+    -webkit-user-select: none
+    cursor: pointer
+    text-shadow: 1px 1px #fff
+    font-weight: 700
+    font-size: 10pt
+  &:hover::before
+    border-color: black
+  &:active
+    outline: 0
+    &::before
+      background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9)
+
+::ng-deep .mffP0 .mat-form-field-infix
+  border-top: 0
+
+::ng-deep .mffP0 .mat-form-field-wrapper
+  padding-bottom: 1em
+
+.fldLabel
+  background-color: gray
+  color: white
+  padding: 5px
+
+.fldValue
+  background-color: #e0e0e0
+  color: #555
+  padding: 5px
+
+.m5
+  margin: 5px
+
+.absIcon
+  position: absolute
+  top: 3px
+  right: 0
+  cursor: pointer
+
+.svrtySC
+  background-color: #ff5500
+  color: white
+  padding: 5px
+  border-radius: 40%
+
+.svrtyC
+  background-color: #cc0000
+  color: white
+  padding: 5px
+  border-radius: 40%
+
+.svrtyH
+  background-color: #ff8800
+  color: white
+  padding: 5px
+  border-radius: 40%
+
+.svrtyM
+  background-color: #ffcc00
+  color: white
+  padding: 5px
+  border-radius: 40%
+
+.svrtyL
+  background-color: #00A000
+  color: white
+  padding: 5px
+  border-radius: 40%
+
+// .mat-card-header
+//   background-color: rgb(0, 150, 136) !important
+//   color: #fff
+
+.mat-raised-button
+  background-color: rgb(0, 150, 136) !important
+  color: rgb(255, 255, 255) !important
+
+.customDataTable .mat-row
+  min-height: 40px
+  &:nth-child(odd)
+  //background-color: #f7f7f7
+  &:hover
+    background-color: #e0e0e0
+
+.mobile-label
+  display: none
+
+@media(max-width: 600px)
+  // Custom header label that shows in each column, with a set width and bold font
+  // Remove the header row altogether
+  .customDataTable .mat-header-row
+    display: none
+
+  // The row cells should display as a column, justified left, with a bit of extra padding
+  .customDataTable .mat-row
+    flex-direction: column
+    align-items: start
+    padding: 8px 24px
+    &::after
+      min-height: auto
+  .customDataTable .mat-row .mat-cell
+    display: flex
+
+    width: 100%
+    .mobile-label
+      display: inline-block
+      width: 40%
+      font-weight: bold
+    .mobile-value
+      width: 60%
+
+.spacer
+  flex: 1 1 auto
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700')
+@import "~@angular/material/prebuilt-themes/indigo-pink.css"
+body
+  position : fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  margin: 0
+  padding: 0
+  height: 100%
+  font-family: 'Roboto'
+
+/*  Common classes */
+.cur-poi
+ cursor: pointer
+.p0
+  padding: 0px !important
+.p5
+  padding: 5px !important
+.p10
+  padding: 10px !important
+.p15
+  padding: 15px !important
+
+.pt5
+  padding-top: 5px !important
+
+.pt10
+  padding-top: 10px !important
+
+.mt0
+  margin-top: 0
+
+.mt5
+  margin-top: 5px
+
+.mb5
+  margin-bottom: 5px
+
+.mb10
+  margin-bottom: 10px
+.mtb10
+  margin-top: 10px
+  margin-bottom: 10px
+
+.mr10
+  margin-right: 10px
+
+.mtb0
+  margin-top: 0
+  margin-bottom: 0
+.mt40
+  margin-top: 40px
+.w90
+  width: 90%
+
+.w100
+  width: 100%
+
+.w50
+  width: 50%
+
+.tCenter
+  text-align: center
+
+.tRight
+  text-align: right
+
+.tLeft
+  text-align: left
+
+.p10
+  padding: 10px
+
+.pr10
+  padding-right: 10px
+
+.m10
+  margin: 5px
+
+.w50p
+  width: 50%
+.w100p
+  width: 100%
+.posRel
+  position: relative
+
+.custom-file-input
+  color: transparent
+  outline: none
+  &::-webkit-file-upload-button
+    visibility: hidden
+  &::before
+    content: 'Upload files'
+    color: black
+    display: inline-block
+    background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3)
+    border: 1px solid #999
+    border-radius: 3px
+    padding: 5px 8px
+    outline: none
+    white-space: nowrap
+    -webkit-user-select: none
+    cursor: pointer
+    text-shadow: 1px 1px #fff
+    font-weight: 700
+    font-size: 10pt
+  &:hover::before
+    border-color: black
+  &:active
+    outline: 0
+    &::before
+      background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9)
+
+::ng-deep .mffP0 .mat-form-field-infix
+  border-top: 0
+
+::ng-deep .mffP0 .mat-form-field-wrapper
+  padding-bottom: 1em
+
+.fldLabel
+  background-color: gray
+  color: white
+  padding: 5px
+
+.fldValue
+  background-color: #e0e0e0
+  color: #555
+  padding: 5px
+
+.m5
+  margin: 5px
+
+.absIcon
+  position: absolute
+  top: 3px
+  right: 0
+  cursor: pointer
+
+.svrtySC
+  background-color: #ff5500
+  color: white
+  padding: 5px
+  border-radius: 40%
+
+.svrtyC
+  background-color: #cc0000
+  color: white
+  padding: 5px
+  border-radius: 40%
+
+.svrtyH
+  background-color: #ff8800
+  color: white
+  padding: 5px
+  border-radius: 40%
+
+.svrtyM
+  background-color: #ffcc00
+  color: white
+  padding: 5px
+  border-radius: 40%
+
+.svrtyL
+  background-color: #00A000
+  color: white
+  padding: 5px
+  border-radius: 40%
+
+// .mat-card-header
+//   background-color: rgb(0, 150, 136) !important
+//   color: #fff
+
+.mat-raised-button
+  background-color: rgb(0, 150, 136) !important
+  color: rgb(255, 255, 255) !important
+
+.customDataTable .mat-row
+  min-height: 40px
+  &:nth-child(odd)
+  //background-color: #f7f7f7
+  &:hover
+    background-color: #e0e0e0
+
+.mobile-label
+  display: none
+
+
+
+.spacer
+  flex: 1 1 auto
+.text-right
+  text-align: right
+
+.abs-fab-btn    
+  position: absolute
+  top: -8px
+
+.mat-dialog-container 
+    display: block
+    padding: 0px
+    border-radius: 4px
+    box-sizing: border-box
+    overflow: auto
+    outline: 0
+    width: 100%
+    height: 100%
+    min-height: inherit
+    max-height: inherit
+
+
+// .no-pad-dialog
+//   .mat-dialog-container
+//     padding: 0
+// .no-pad-dialog
+//   .mat-dialog-content
+//     margin: 0
+    
+.unidentified-card.mat-card
+  margin: 5px
+  background-color: #f5f5f5
+  padding: 0 24px
+  .mat-card-image
+    margin-bottom: 0
+  .mat-card-content
+    text-align: center
+.mat-form-field.select-no-pad-mar
+  // margin-right: -24px
+  .mat-form-field-infix
+    padding: 0
+    border-top: 3px solid transparent
+  .mat-input-wrapper.mat-form-field-wrapper
+    padding: 0 !important
+  .mat-form-field-underline
+    bottom: 0
+  .mat-form-field-label-wrapper
+    top: -1.44375em
+    padding-top: 1.44375em
+
+
+  // .mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label
+  //   -webkit-transform: translateY(-0.58125em) scale(.75) perspective(100px) translateZ(.001px)
+  //   transform: translateY(-0.58125em) scale(.75) perspective(100px) translateZ(.001px)
+  //   -ms-transform: translateY(-0.58125em) scale(.75)
+
+.secondary-btn
+  // background-color: #555
+.map-dialog
+  position: relative !important
+  
+  .mat-dialog-content
+      
+    max-height: 82vh !important
+    margin: 0 !important
+    padding: 0 !important
+    display: flex    
+    height: 100vh
+.view-map-btn
+  background-color: transparent !important
+  border:1px solid tomato !important
+  color: tomato !important
+.view-map-btn:hover
+  background-color: tomato !important
+  border: 1px solid tomato !important
+  color: white !important
+.view-report-btn 
+  background-color: transparent !important
+  border: 1px solid goldenrod !important
+  color: goldenrod !important
+.view-report-btn:hover
+  background-color: goldenrod !important
+  color: white !important
+  border: 1px solid goldenrod !important
+.view-unidentified-btn
+  background-color: transparent !important
+  color: #00978A !important
+  border: 1px solid #00978A !important
+.view-unidentified-btn:hover
+  background-color: #00978A !important
+  color: white !important
+  border: 1px solid #00978A !important    
+.haserror
+  color: #f44336
+  position: absolute
+  bottom: -15px
+  font-size: 11px
+ 
+      
+    
+    
+
+    
+  

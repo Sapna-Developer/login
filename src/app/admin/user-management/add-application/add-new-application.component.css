@@ -1,0 +1,40 @@
+h1{
+    color: #074D65;
+    font-size: 17px;
+    font-weight: bold;
+} 
+
+mat-dialog-content{
+    max-height: 0%;
+    padding: 0px;
+}
+
+.btnaction{
+    float:right;
+    margin-right: 30px;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 1px 1px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  
+.mat-dialog-container {
+    margin: 0 auto 30px !important;
+    height: 100vh !important;
+    overflow: initial !important;
+
+}
+
+ 
+  

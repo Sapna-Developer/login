@@ -1,0 +1,106 @@
+h1{
+    color: #074D65;
+    font-size: 17px;
+    font-weight: bold;
+} 
+
+.contentForm{
+  width: 100%;
+  height: calc(100vh - 244px);
+  background: #FFFFFF;
+  font-family: 'Roboto';
+}
+
+::ng-deep .mat-ink-bar {
+  background-color:#004E66 !important;}
+
+table {
+  width: 100%;
+}
+
+.example-container{
+  width: 100%;
+  max-height: calc(100vh - 215px);
+  overflow: auto;
+}
+
+.no-results {
+  display: flex;
+  justify-content: center;
+  padding: 14px;
+  font-size: 14px;
+  font-style: italic;
+}
+
+tr.mat-header-row{
+  background: #004E66;
+  height: 40px;
+}
+
+th.mat-header-cell{
+  color: white;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.mat-column-action {
+  padding-left: 5px;
+  padding-right: 5px;
+  flex: 0 0 10% !important;
+  min-width: 30px !important;
+}
+
+.mat-column-usename {
+  padding-left: 5px;
+  padding-right: 5px;
+  flex: 0 0 10% !important;
+  min-width: 30px !important;
+}
+
+.mat-column-work_email {
+  padding-left: 5px;
+  padding-right: 5px;
+  flex: 0 0 10% !important;
+  min-width: 50px !important;
+}
+
+mat-header-cell {
+  display:flex;
+  justify-content:center;
+}
+
+::ng-deep .mat-dialog-content{
+    overflow: inherit;
+}
+
+.btnaction{
+    float:right;
+    margin-right: 30px;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 1px 1px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  
+.mat-dialog-container {
+    
+    /*
+    margin: 0 auto 30px !important;
+    height: 100vh !important;
+     overflow: initial !important; */
+
+}
+
+ 
+  

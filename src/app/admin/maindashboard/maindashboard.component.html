@@ -1,0 +1,64 @@
+<div id="wrapper">
+  <div id="header">
+    <mat-toolbar>
+        <mat-toolbar-row class="singleRow">
+          <div fxLayout="row" class="maxWidth" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.9%" fxLayoutAlign="start center">
+            <div fxFlex="50%" class="display">
+                <span class="logoWrap" (click)="logoClick()">
+                    <img class="resImg" src="./assets/images/mainlogo.svg" style="min-width:150px;">          
+                </span>
+                <span class="sub-title">
+                  SSO
+                </span>
+            </div>
+            <div fxFlex="50%" class="display">
+                <mat-form-field class="example-full-width" style="font-size:13px;">
+                    <input matInput placeholder="Search" [(ngModel)]="data.search">
+                  </mat-form-field>
+                  <span style="margin-top:10px">
+                    <i class="material-icons">
+                      search
+                      </i>
+                  </span>
+            </div>
+          </div>
+          <span class="spacer"></span>
+            <span class="user-info">
+                <mat-icon style="width: 20px;height: 20px;margin-top: -4px; margin-right: 4px;">person_outline</mat-icon>
+                <span>
+                    <label style="padding-left: 1px;font-size: 16px;" [matMenuTriggerFor]="verticals" class="header-drop-menu">{{currentUser.username | titlecase}}</label>
+                </span>
+              </span>
+            <mat-menu #verticals="matMenu">
+              <button mat-menu-item (click)="userLogout()"><span class="al-items"><mat-icon>power_settings_new</mat-icon> Logout</span></button>
+            </mat-menu>
+            
+        </mat-toolbar-row>
+      </mat-toolbar>
+  </div>
+
+  <div class="btn_content">
+      <span>
+          <label class="heading-content">Project Home</label>
+      </span>
+      
+    <button mat-mini-fab *ngIf="show" routerLink="/user-management" style="background-color: #80C756;" matTooltip="User Managment"><mat-icon>person_add</mat-icon></button>&nbsp;
+
+  </div>
+  <div id="content">
+      <div class="unidentified-cards">
+          <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="0.5%" fxLayoutAlign="start center" >
+           <mat-card>
+              <a >
+                GEE
+              </a>  
+            </mat-card>
+            <mat-card>
+              <a >
+                PLF
+              </a>  
+            </mat-card>
+          </div>
+        </div> 
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<section class="content">
+  <mat-card class="login-form-wrap" style="margin-left:37%">
+    <mat-card-header>
+      <mat-card-title >
+        <img style="height: 40px;" alt="logo" src="./assets/images/logo_greeenko_eps.svg">
+      </mat-card-title>
+      <mat-card-subtitle ><span class="sub-title">
+        <p *ngIf="currentURL=='https://testgeps.greenko.net/login'">Greenko Energy Projects System</p>
+        <p *ngIf="currentURL=='https://gepsv2.greenkogroup.com/login'">Greenko Energy Projects System</p>
+       
+        <p *ngIf="currentURL=='https://gee.greenko.net/login'">Greenko Eagle Eye</p>
+      </span></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="login-form" (submit)="loginSubmit($event,f)" #f="ngForm" novalidate>
+        <mat-form-field class="w100">
+          <input matInput placeholder="Username" autocomplete="off" name="userName" [(ngModel)]="data.userName" [required]="true" #userName="ngModel">
+          <mat-error *ngIf="(userName.errors && userName.touched || f.submitted)">
+            <small *ngIf="userName.errors?.required" class="haserror">
+              User name is required
+            </small>
+          </mat-error>  
+        </mat-form-field>
+        <mat-form-field class="w100">
+          <input matInput placeholder="password" type="password" name="password" autocomplete="off" [(ngModel)]="data.password" name="password" [required]="true" #password="ngModel">
+          <mat-error *ngIf="(password.errors && password.touched || f.submitted)">
+            <small *ngIf="password.errors?.required" class="haserror">
+              Password is required
+            </small>
+          </mat-error>
+        </mat-form-field>
+        <div fxLayout="row" class="remForgot mtb10" fxLayoutAlign="space-between center">
+          <div fxFlex="50">
+            <mat-checkbox [(ngModel)]="data.remember" name="remember" (change)="getRememberMe()">Remember me!</mat-checkbox>
+          </div>
+          <a class="cur-poi" fxFlex="50" (click)="redirectTo()">Forgot password?</a>
+        </div>
+        <button mat-raised-button class="loginBtn" color="primary" type="submit" [disabled]="onSubmitLoading" >Login <mat-spinner [diameter]="24" *ngIf="onSubmitLoading" style="position:absolute;right:-24px;top:0;margin: 5px 0px 0px 5px" ></mat-spinner></button>
+        <br/>
+        <div class="errorDiv">
+          <mat-error class="errorMat">
+            {{errorMessage}}
+          </mat-error>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <div style="color: white;
+  margin-top: 36%;
+  margin-right: 51px;">
+ <p style="text-align:center">Powered By</p>
+ <img style="height: 40px;" alt="logo" src="./assets/images/mainlogo.svg">
+  </div>
+ 
+</section>

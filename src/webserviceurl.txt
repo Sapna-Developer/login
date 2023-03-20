@@ -1,0 +1,13 @@
+Login url: http://10.80.80.132:5000/login
+
+Request:
+{
+	"User_ID" : "admin",
+	"Password" : "admin@123"
+}
+
+Response:
+{
+    "message": "Login Successful",
+    "success": true
+}
